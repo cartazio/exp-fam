@@ -19,4 +19,7 @@ data ExpFam θ dim x  where
    (θ -> Split.Random x ) ->  -- sample
    ExpFam θ dim x
 
-
+-- if we hid the dimensionality of the sufficient statistic
+data SuffExistFam theta x where
+  SuffExpF :: forall dim theta x . KnownNat dim =>
+    Proxy dim -> ExpFam theta dim x -> SuffExistFam theta x
